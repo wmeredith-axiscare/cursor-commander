@@ -5,11 +5,11 @@ Apply: `_Base.Context`
 
 ### Scope Mode
 - **Diff mode** (default): Review ONLY files changed in this diff. Do not refactor unrelated code.
-- **Full mode**: When reviewing a folder/codebase (e.g., `@app/`), assess all code in scope.
+- **Full mode**: When reviewing a folder/codebase (e.g., `@src/`), assess all code in scope.
 
 ### Validation
-- Run tests: `npm test` (or explain why you cannot)
-- Run lint/typecheck: `npm run lint` and `tsc -p tsconfig.json --noEmit`
+- Run tests (or explain why you cannot)
+- Run lint/typecheck if available
 
 ### Functionality & Correctness
 - Confirm code meets stated requirements
@@ -18,11 +18,8 @@ Apply: `_Base.Context`
 
 ### Checklists
 Apply all:
-- `_Checklist.NextJS`
-- `_Checklist.Supabase`
 - `_Checklist.Security`
 - `_Checklist.Performance`
-- `_Checklist.UI`
 
 ### Maintainability
 - Clear naming, single-purpose functions, avoid duplication
@@ -52,4 +49,4 @@ Apply all:
 <Approve / Request Changes / Needs Clarification>
 
 ### Last Step
-Ask if I would like to review each item one by one. Every item should have "Skip" and "Not now, but note as possible future enhancement." When noting for future, add to `.cursor/plans/backlog.plan.md`.
+Ask if I would like to review each item one by one. Every item should have "Skip" and "Not now, but note as possible future enhancement."

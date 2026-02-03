@@ -12,7 +12,12 @@ Invoke directly via `@CommandName` in chat.
 
 | Command | Purpose |
 | ------- | ------- |
-| *Add universal commands here* | *Description* |
+| `Review.Thorough` | Full code review with all checklists |
+| `Review.Fast` | Quick review for small changes |
+| `Review.Security` | Security-focused review |
+| `Review.Performance` | Performance-focused review |
+| `Scan.DeadCode` | Find unused code |
+| `Scan.DuplicateLogic` | Find DRY violations |
 
 ### Fragments (prefix `_`)
 
@@ -20,7 +25,12 @@ Reusable pieces that commands reference. Not meant to be called directly.
 
 | Fragment | Contains |
 | -------- | -------- |
-| *Add shared fragments here* | *Description* |
+| `_Base.Context` | Generic context, validation commands |
+| `_Context.CodeReview` | Diff-only review scope instruction |
+| `_Checklist.Security` | Input validation, injection, authz, sensitive data |
+| `_Checklist.Performance` | Database, resources, concurrency, caching |
+| `_Output.ReviewFormat` | Standard review output template |
+| `_LastStep.Interactive` | Interactive review workflow prompt |
 
 ## Composition Pattern
 
@@ -45,13 +55,11 @@ Apply all:
 
 - `_` prefix = fragment (composition building block)
 - `Review.*` = code review commands
-- `Assess.*` = assessment/analysis commands
 - `Scan.*` = codebase scanning commands
-- `Seed.*` / `Update.*` = utility commands
 
-## Adding Commands
+## Extending Base Commands
 
-1. Create a new `.md` file in this directory
-2. Use existing fragments via `Apply: _FragmentName`
-3. Follow the naming conventions above
-4. Update this README with the new command
+Stack-specific profiles can:
+1. Add their own fragments (e.g., `_Checklist.React`, `_Checklist.Django`)
+2. Create stack-specific commands that reference both base and custom fragments
+3. Override base commands with stack-specific versions
